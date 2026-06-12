@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C36E718B3444C2CC2978016D /* Pods_RMAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B342C32651DE68338361AD0 /* Pods_RMAppDemo.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1A8C91FE2FDC9A710050BDB0 /* RMAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B342C32651DE68338361AD0 /* Pods_RMAppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RMAppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A9A4F7CEBD2CCF5A84C9110 /* Pods-RMAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMAppDemo.release.xcconfig"; path = "Target Support Files/Pods-RMAppDemo/Pods-RMAppDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F0745CC8EA67C061ADA3D188 /* Pods-RMAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMAppDemo.debug.xcconfig"; path = "Target Support Files/Pods-RMAppDemo/Pods-RMAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36E718B3444C2CC2978016D /* Pods_RMAppDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +42,8 @@
 			children = (
 				1A8C92002FDC9A710050BDB0 /* RMAppDemo */,
 				1A8C91FF2FDC9A710050BDB0 /* Products */,
+				9420853B3BE8DB03DAD2AC7E /* Pods */,
+				1F3FD958B2A57E934AC2664D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +55,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F3FD958B2A57E934AC2664D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B342C32651DE68338361AD0 /* Pods_RMAppDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9420853B3BE8DB03DAD2AC7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0745CC8EA67C061ADA3D188 /* Pods-RMAppDemo.debug.xcconfig */,
+				2A9A4F7CEBD2CCF5A84C9110 /* Pods-RMAppDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -52,9 +79,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A8C92092FDC9A720050BDB0 /* Build configuration list for PBXNativeTarget "RMAppDemo" */;
 			buildPhases = (
+				413C88D5646AE926ED1F9961 /* [CP] Check Pods Manifest.lock */,
 				1A8C91FA2FDC9A710050BDB0 /* Sources */,
 				1A8C91FB2FDC9A710050BDB0 /* Frameworks */,
 				1A8C91FC2FDC9A710050BDB0 /* Resources */,
+				F130F47E0E067790B2535795 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -64,8 +93,6 @@
 				1A8C92002FDC9A710050BDB0 /* RMAppDemo */,
 			);
 			name = RMAppDemo;
-			packageProductDependencies = (
-			);
 			productName = RMAppDemo;
 			productReference = 1A8C91FE2FDC9A710050BDB0 /* RMAppDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +140,52 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		413C88D5646AE926ED1F9961 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RMAppDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F130F47E0E067790B2535795 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RMAppDemo/Pods-RMAppDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RMAppDemo/Pods-RMAppDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RMAppDemo/Pods-RMAppDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A8C91FA2FDC9A710050BDB0 /* Sources */ = {
@@ -248,6 +321,7 @@
 		};
 		1A8C920A2FDC9A720050BDB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0745CC8EA67C061ADA3D188 /* Pods-RMAppDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -280,6 +354,7 @@
 		};
 		1A8C920B2FDC9A720050BDB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A9A4F7CEBD2CCF5A84C9110 /* Pods-RMAppDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
