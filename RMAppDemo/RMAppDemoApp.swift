@@ -11,7 +11,9 @@ import SwiftUI
 struct RMAppDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView(content: {
+                CharactersList()
+            })
         }
     }
 }
