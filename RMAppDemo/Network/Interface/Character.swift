@@ -5,7 +5,7 @@
 //  Created by BioOsc on 12/06/26.
 //
 
-struct RMCharacter: Decodable {
+struct RMCharacter: Decodable, Identifiable {
     //MARK: This object was reducted from the full description
     let id: Int
     let name: String
