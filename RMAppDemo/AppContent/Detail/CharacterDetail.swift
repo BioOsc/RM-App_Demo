@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct CharacterDetail: View {
     
@@ -26,12 +27,27 @@ struct CharacterDetail: View {
                 image.image?
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 100, maxHeight: 100)
+                    .frame(maxWidth: 200, maxHeight: 200)
             }
-            Text("Especie: \(charVM.character?.species)")
-                .font(.title3)
-            Text("Status: \(charVM.character?.status)")
-                .font(.title3)
+            HStack(alignment: .center, spacing: 10, content: {
+                VStack(alignment: .center, spacing: 10, content: {
+                    Text("Especie: \(charVM.character?.species ?? "")")
+                        .font(.title2)
+                    Text("Status: \(charVM.character?.status ?? "")")
+                        .font(.title2)
+                })
+                RMButton(title: "Ver en mapa", action: {
+                    //ToDo: Go to simulated location
+                }, width: 120)
+            })
+            ScrollView {
+                LazyVStack(spacing: 5) {
+                    ForEach(charVM.episodes) { eps in
+                        RMEpisodeSheet(source: eps)
+                    }
+                }
+                .padding(25)
+            }
         })
     }
 }

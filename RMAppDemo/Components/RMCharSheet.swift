@@ -40,5 +40,5 @@ struct RMCharSheet: View {
 }
 
 #Preview {
-    RMCharSheet(source: RMCharacter(id: 0, name: "Test", species: "Description", status: "Description", image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+    RMCharSheet(source: RMCharacter(id: 0, name: "Test", species: "Description", status: "Description", image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg", episode: ["https://rickandmortyapi.com/api/character/28"]))
 }

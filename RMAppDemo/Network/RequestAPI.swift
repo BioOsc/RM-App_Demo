@@ -15,11 +15,13 @@ enum Server: String {
 class RequestAPI {
     
     var chararcter: CharacterSegment!
+    var episode: EpisodeSegment!
     
     private init () {
         let server: Server = .rmAPI
         
         chararcter = CharacterSegment(to: server)
+        episode = EpisodeSegment(to: server)
     }
     
     static var shared: RequestAPI = {
