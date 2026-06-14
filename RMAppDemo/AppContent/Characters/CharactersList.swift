@@ -14,6 +14,9 @@ struct CharactersList: View {
     
     @StateObject private var charVM: CharacterViewModel = CharacterViewModel()
     
+    let biometricAuth = FaceIDAuth()
+    @State private var navFlag: Int? = 0
+    
     init() {
         self.search = ""
         self.current = 1
@@ -21,11 +24,20 @@ struct CharactersList: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
-            RMSearchBar(title: LocalString.getFrom(key: KeyLocal.Character.topBarTitle, in: .character), text: search, onChange: { text in
-                if (text.count > 4 ) {
-                    //ToDo: Call search api (current not work as an autocomplete search) and avoid implementation high network usage
-                }
-            }, placeholder: LocalString.getFrom(key: KeyLocal.Character.topBarPlaceholder, in: .character))
+            HStack(alignment: .center, spacing: 10, content: {
+                RMSearchBar(title: LocalString.getFrom(key: KeyLocal.Character.topBarTitle, in: .character), text: search, onChange: { text in
+                    if (text.count > 4 ) {
+                        //ToDo: Call search api (current not work as an autocomplete search) and avoid implementation high network usage
+                    }
+                }, placeholder: LocalString.getFrom(key: KeyLocal.Character.topBarPlaceholder, in: .character))
+                RMButton(title: LocalString.getFrom(key: KeyLocal.Character.btnFavorite, in: .character), action: {
+                    biometricAuth.authUser(completion: { result, error in
+                        if (result) {
+                            self.navFlag = 1
+                        } else { self.navFlag = 0 }
+                    })
+                }, height: 50, width: 90)
+            })
             ScrollView {
                 LazyVStack(spacing: 5) {
                     ForEach(charVM.characters) { char in
@@ -53,6 +65,7 @@ struct CharactersList: View {
                     charVM.getBy(page: current)
                 }, height: 50, width: 80)
             })
+            NavigationLink("", destination: FavoriteCharacter(), tag: 1, selection: $navFlag)
         })
     }
     
