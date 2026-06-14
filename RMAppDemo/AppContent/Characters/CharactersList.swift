@@ -21,11 +21,11 @@ struct CharactersList: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10, content: {
-            RMSearchBar(title: "Search By", text: search, onChange: { text in
+            RMSearchBar(title: LocalString.getFrom(key: KeyLocal.Character.topBarTitle, in: .character), text: search, onChange: { text in
                 if (text.count > 4 ) {
                     //ToDo: Call search api (current not work as an autocomplete search) and avoid implementation high network usage
                 }
-            }, placeholder: "<Nombre, especie o estado>")
+            }, placeholder: LocalString.getFrom(key: KeyLocal.Character.topBarPlaceholder, in: .character))
             ScrollView {
                 LazyVStack(spacing: 5) {
                     ForEach(charVM.characters) { char in
@@ -40,18 +40,18 @@ struct CharactersList: View {
                 })
             }
             HStack(alignment: .center, spacing: 10, content: {
-                RMButton(title: "Prev", action: {
+                RMButton(title: LocalString.getFrom(key: KeyLocal.Character.btnPrev, in: .character), action: {
                     if (current > 1) {
                         current = current - 1
                         charVM.getBy(page: current)
                     }
-                }, height: 50, width: 70)
+                }, height: 50, width: 80)
                 Text("Pg\(current)")
                     .font(.headline)
-                RMButton(title: "Next", action: {
+                RMButton(title: LocalString.getFrom(key: KeyLocal.Character.btnNext, in: .character), action: {
                     current = current + 1
                     charVM.getBy(page: current)
-                }, height: 50, width: 70)
+                }, height: 50, width: 80)
             })
         })
     }

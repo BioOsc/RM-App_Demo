@@ -76,9 +76,9 @@ class MemoryManager {
         
         do {
             try context.save()
-            print("Data successfully saved!")
+            print("LOG: Data saved!")
         } catch {
-            print("Failed to save data: \(error.localizedDescription)")
+            print("LOG: Failed to save data: \(error.localizedDescription)")
         }
     }
     
@@ -94,9 +94,9 @@ class MemoryManager {
             context.delete(element!)
             do {
                 try context.save()
-                print("Data successfully saved!")
+                print("LOG: Data deleted!")
             } catch {
-                print("Failed to save data: \(error.localizedDescription)")
+                print("LOG: Failed to save data: \(error.localizedDescription)")
             }
         }
         
@@ -111,7 +111,7 @@ class MemoryManager {
             let result = try context.fetch(fetchRequest)
             return result
         } catch {
-            print("Failed to fetch records: \(error.localizedDescription)")
+            print("LOG: Failed to fetch Core Data: \(error.localizedDescription)")
             return []
         }
     }

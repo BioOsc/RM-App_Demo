@@ -42,16 +42,16 @@ struct CharacterDetail: View {
             })
             HStack(alignment: .center, spacing: 10, content: {
                 VStack(alignment: .center, spacing: 10, content: {
-                    Text("Especie: \(charVM.character?.species ?? "")")
+                    Text(LocalString.format(text: charVM.character?.species ?? "", with: KeyLocal.Global.species, in: .global))
                         .font(.title2)
-                    Text("Status: \(charVM.character?.status ?? "")")
+                    Text(LocalString.format(text: charVM.character?.status ?? "", with: KeyLocal.Global.status, in: .global))
                         .font(.title2)
                 })
                 VStack(alignment: .center, spacing: 10, content: {
-                    RMButton(title: "Ver en mapa", action: {
+                    RMButton(title: LocalString.getFrom(key: KeyLocal.Detail.btnMap, in: .detail), action: {
                         //ToDo: Go to simulated location
                     }, width: 120)
-                    RMButton(title: "Favorito", action: {
+                    RMButton(title: LocalString.getFrom(key: favorite ? KeyLocal.Detail.btnRmvFav : KeyLocal.Detail.btnAddFav, in: .detail), action: {
                         if (favorite) {
                             MemoryManager.shared.removeFavorite(ref: characterID)
                             favorite = false
@@ -62,7 +62,7 @@ struct CharacterDetail: View {
                                 MemoryManager.shared.saveFavCharacter(char: charVM.character!)
                             }
                         }
-                    }, width: 100)
+                    }, width: favorite ? 120 : 100)
                 })
             })
             ScrollView {

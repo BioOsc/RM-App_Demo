@@ -26,9 +26,9 @@ struct RMCharSheet: View {
             VStack(alignment: .leading, spacing: 5, content: {
                 Text(content.name)
                     .font(.title)
-                Text("Especie: \(content.species)")
+                Text(LocalString.format(text: content.species, with: KeyLocal.Global.species, in: .global))
                     .font(.title3)
-                Text("Status: \(content.status)")
+                Text(LocalString.format(text: content.status, with: KeyLocal.Global.status, in: .global))
                     .font(.title3)
             })
             .frame(maxWidth: .infinity, minHeight: 120)
@@ -37,6 +37,7 @@ struct RMCharSheet: View {
         .frame(maxWidth: .infinity, maxHeight: 120)
         .cornerRadius(8)
     }
+    
 }
 
 #Preview {
