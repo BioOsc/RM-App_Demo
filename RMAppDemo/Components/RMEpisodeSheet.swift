@@ -20,19 +20,18 @@ struct RMEpisodeSheet: View {
             VStack(alignment: .leading, spacing: 5, content: {
                 Text(content.episode)
                     .font(.system(size: 14, weight: .heavy))
-                Text(content.name)
+                    .frame(width: 250, alignment: .leading)
+                Text("\(content.id) - \(content.name)")
                     .font(.system(size: 18, weight: .regular))
+                    .frame(width: 250, alignment: .leading)
             })
             .frame(maxWidth: .infinity, minHeight: 100)
             VStack(alignment: .trailing, spacing: 5, content: {
-                Image(.star)
+                Image(.checkmark) //ToDo: Implement conditional to memory?
                     .resizable()
                     .renderingMode(.template)
                     .foregroundStyle(.accent)
                     .frame(width: 30, height: 30)
-                RMButton(title: "Favorito", action: {
-                    //ToDo: Implement memory for favorite elements | also implement dinamic title for status in memory
-                }, height: 50, width: 125)
             })
             .frame(maxWidth: .infinity, minHeight: 100)
         })

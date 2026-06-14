@@ -35,6 +35,9 @@ struct CharactersList: View {
                     }
                 }
                 .padding(25)
+                .onAppear(perform: {
+                    charVM.getBy(page: current)
+                })
             }
             HStack(alignment: .center, spacing: 10, content: {
                 RMButton(title: "Prev", action: {
