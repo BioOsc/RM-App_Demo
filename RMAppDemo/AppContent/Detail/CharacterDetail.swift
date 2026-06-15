@@ -12,6 +12,7 @@ struct CharacterDetail: View {
     
     var characterID: Int
     
+    @State private var navFlag: Int? = 0
     @State private var favorite: Bool
     @State private var charVM: CharDetailViewModel
     
@@ -49,7 +50,7 @@ struct CharacterDetail: View {
                 })
                 VStack(alignment: .center, spacing: 10, content: {
                     RMButton(title: LocalString.getFrom(key: KeyLocal.Detail.btnMap, in: .detail), action: {
-                        //ToDo: Go to simulated location
+                        self.navFlag = 1
                     }, width: 120)
                     RMButton(title: LocalString.getFrom(key: favorite ? KeyLocal.Detail.btnRmvFav : KeyLocal.Detail.btnAddFav, in: .detail), action: {
                         if (favorite) {
@@ -73,6 +74,7 @@ struct CharacterDetail: View {
                 }
                 .padding(25)
             }
+            NavigationLink("", destination: CharacterLocation(character: charVM.character?.name ?? ""), tag: 1, selection: $navFlag)
         })
     }
 }

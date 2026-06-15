@@ -21,8 +21,8 @@ class FavoriteCharViewModel: ObservableObject {
     
     func getMemory() {
         isLoading = true
-        var memContent: [CDCharacter] =  memory.fetchFavCharacters()
-        
+        let memContent: [CDCharacter] =  memory.fetchFavCharacters()
+        //ToDo: Evaluate implement paginaton for memory objects, may be with range for sub array
         characters = memContent.map({ item in
             return RMCharacter(id: Int(item.id), name: item.name!, species: item.species!, status: item.status!, image: item.image!, episode: [])
         })
