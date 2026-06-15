@@ -1,38 +1,36 @@
 //
-//  Character.swift
+//  Episode.swift
 //  RMAppDemo
 //
 //  Created by BioOsc on 12/06/26.
 //
 
-struct RMCharacter: Decodable, Identifiable {
+struct RMEpisode: Decodable, Identifiable {
     //MARK: This object was reducted from the full description
     let id: Int
     let name: String
-    let species: String
-    let status: String
-    let image: String
-    let episode: [String]
+    let airDate: String
+    let episode: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case species
-        case status
-        case image
+        case airDate = "air_date"
         case episode
     }
     
 }
 
-struct CharacterRequest {
+struct EpisodeRequest {
     
     let id: Int
     let page: Int
+    let grouped: String
     
-    init(id: Int, page: Int) {
+    init(id: Int, page: Int, grouped: String) {
         self.id = id
         self.page = page
+        self.grouped = grouped
     }
     
 }
